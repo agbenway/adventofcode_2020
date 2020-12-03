@@ -1,12 +1,11 @@
-import requests
-import re
+from Helper import Helper
 from passwords import DaylyInput
-from itertools import islice 
+import re
 
 passwordInput = DaylyInput().GetDaylyInput(2).content.decode('utf-8').splitlines()
 
-Output = []
-count = 0
+policy1 = 0
+policy2 = 0
 for i in passwordInput:
     colon_split = i.split(": ")
     
@@ -21,8 +20,11 @@ for i in passwordInput:
     password = colon_split[1]
 
     occurrences = re.findall(letter, password)
-    
     if (len(occurrences) >= min and len(occurrences) <= max):
-        count += 1
+        policy1 += 1
 
-print(count)
+    indices = Helper().findInString(password, letter)
+    if ((indices.__contains__(min)) != (indices.__contains__(max))):
+        policy2 += 1
+
+print(f'Part 1: {policy1}, Part 2: {policy2}')
