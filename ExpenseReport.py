@@ -1,6 +1,7 @@
 import requests
+from passwords import DaylyInput
 
-entries = response.content.decode('utf-8').splitlines()
+entries = DaylyInput().GetDaylyInput(1).content.decode('utf-8').splitlines()
 
 for i in entries:
     for j in entries:

@@ -1,10 +1,9 @@
 import requests
 import re
-
 from itertools import islice 
+from passwords import DaylyInput
 
-
-passwordInput = response.content.decode('utf-8').splitlines()
+passwordInput = DaylyInput().GetDaylyInput(2).content.decode('utf-8').splitlines()
 
 Output = []
 count = 0
