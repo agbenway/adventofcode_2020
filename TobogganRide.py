@@ -1,13 +1,10 @@
 from passwords import DaylyInput
 
-
-
 def hash_key(height, width):
     return hash((height, width))    
 
-def get_trees(tright, tdown):
+def get_map():
     map = DaylyInput().GetDaylyInput(3).content.decode('utf-8').splitlines()
-    mapWidth = len(map[0])
     map_hash = {}
     height = 0
     for row in map:
@@ -18,6 +15,13 @@ def get_trees(tright, tdown):
             map_hash[key] = value
             width += 1
         height += 1
+    return [map_hash, height , len(map[0])]
+
+def get_trees(tright, tdown):
+    result = get_map()
+    map_hash = result[0]
+    height = result[1]
+    mapWidth = result[2]
     trees = 0
     down = tdown
     right = tright
@@ -28,14 +32,6 @@ def get_trees(tright, tdown):
         down += tdown
     return trees
 
-# var1 = get_trees(1, 1)
-# var2 = get_trees(3, 1)
-# var3 = get_trees(5, 1) * get_trees(7, 1) * get_trees(1, 2)
-
-print(get_trees(1, 1) * get_trees(3, 1) * get_trees(5, 1) * get_trees(7, 1) * get_trees(1, 2))
-
-# Right 1, down 1.
-# Right 3, down 1. (This is the slope you already checked.)
-# Right 5, down 1.
-# Right 7, down 1.
-# Right 1, down 2.
+part1 = get_trees(3, 1)
+print(f'Part 1: {part1}')
+print(f'Part 2: {get_trees(1, 1) * part1 * get_trees(5, 1) * get_trees(7, 1) * get_trees(1, 2)}')
