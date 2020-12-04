@@ -18,6 +18,5 @@ while answer2 == 0:
                     if h != j and int(i) + int(j) + int(h) == 2020:
                         answer2 = int(i) * int(j) * int(h)
 
-print(f'Part 1 = {str(answer1)}')
-print(f'Part 2 = {str(answer2)}')
-
+print(f'Part 1: {str(answer1)}')
+print(f'Part 2: {str(answer2)}')
