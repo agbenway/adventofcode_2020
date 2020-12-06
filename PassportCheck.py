@@ -84,14 +84,4 @@ for d in listOfPassports:
             count += 1
 
 print(f'********* {count} && required {required}')
-# for d in listOfPassports:
-#     key = list(d.keys())
-#     print(key)
-#     if len(key) >= 7:
-#         diff = list(set(valid) - set(key))
-#         print(f'diff: {diff} & len: {len(diff)}')
-#         if (len(diff) < 1):
-#             count += 1
-#         elif (diff[0] == 'cid'):
-#             count += 1
 
