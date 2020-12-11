@@ -9,7 +9,6 @@ class BoardingPass(object):
 input = DaylyInput().GetDaylyInput(5).content.decode('utf-8').splitlines()
 
 passes = {}
-seat = {}
 
 for bpass in input:
     totalRows = 128
