@@ -1,4 +1,4 @@
-from passwords import DaylyInput
+from DailyInput import DailyInput
 import re
 import functools
 
@@ -68,9 +68,7 @@ class Passport(object):
         # pid (Passport ID) - a nine-digit number, including leading zeroes.
         # cid (Country ID) - ignored, missing or not.
 
-input = DaylyInput().GetDaylyInput(4).content.decode('utf-8').split('\n\n')
-
-passports = [x.replace('\n', ' ') for x in input]
+passports = DailyInput(4).get_input_split_and_replace_lines_with_sapces()
 required = 0
 count = 0
 listOfPassports = [dict(x.split(":") for x in pa.split(" ") if x.find(':') != -1) for pa in passports]
@@ -82,6 +80,7 @@ for d in listOfPassports:
         required +=1
         if p.hasValidFields():
             count += 1
-
-print(f'********* {count} && required {required}')
+            
+print(f'Part 1: {required}') # 228
+print(f'Part 2: {count}') # 175
 

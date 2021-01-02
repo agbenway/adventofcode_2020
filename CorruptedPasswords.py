@@ -1,10 +1,10 @@
-from passwords import DaylyInput
+from DailyInput import DailyInput
 import re
 
 def find(string, letter):
     return [i for i, ltr in enumerate(string, 1) if ltr == letter]
 
-passwordInput = DaylyInput().GetDaylyInput(2).content.decode('utf-8').splitlines()
+passwordInput = DailyInput(2).get_input_split_lines()
 
 policy1 = 0
 policy2 = 0
@@ -29,5 +29,5 @@ for i in passwordInput:
     if ((indices.__contains__(min)) != (indices.__contains__(max))):
         policy2 += 1
 
-print(f'Part 1: {policy1}')
-print(f'Part 2: {policy2}')
+print(f'Part 1: {policy1}') # 447
+print(f'Part 2: {policy2}') # 249

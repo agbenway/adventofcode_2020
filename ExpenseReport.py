@@ -1,6 +1,6 @@
-from passwords import DaylyInput
+from DailyInput import DailyInput
 
-entries = DaylyInput().GetDaylyInput(1).content.decode('utf-8').splitlines()
+entries = DailyInput(1).get_input_split_lines()
 
 answer1 = 0
 answer2 = 0
@@ -18,5 +18,5 @@ while answer2 == 0:
                     if h != j and int(i) + int(j) + int(h) == 2020:
                         answer2 = int(i) * int(j) * int(h)
 
-print(f'Part 1: {str(answer1)}')
-print(f'Part 2: {str(answer2)}')
+print(f'Part 1: {str(answer1)}') # 224436
+print(f'Part 2: {str(answer2)}') # 303394260

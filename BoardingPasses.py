@@ -1,4 +1,4 @@
-from passwords import DaylyInput
+from DailyInput import DailyInput
 
 class BoardingPass(object):
     def __init__(self, row, seat, bpass):
@@ -6,7 +6,7 @@ class BoardingPass(object):
         self.seat = seat
         self.bpass = bpass
 
-input = DaylyInput().GetDaylyInput(5).content.decode('utf-8').splitlines()
+input = DailyInput(5).get_input_split_lines()
 
 passes = {}
 
@@ -49,5 +49,8 @@ for num in sorted:
         break
     else:
         numBefore += 1  
+
+print(f'Part 1: {max(keys)}') # 892
+print(f'Part 2: {num-1}') # 625
 
 

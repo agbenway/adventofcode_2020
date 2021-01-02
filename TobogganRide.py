@@ -1,10 +1,10 @@
-from passwords import DaylyInput
+from DailyInput import DailyInput
 
 def hash_key(height, width):
     return hash((height, width))    
 
 def get_map():
-    map = DaylyInput().GetDaylyInput(3).content.decode('utf-8').splitlines()
+    map = DailyInput(3).get_input_split_lines()
     map_hash = {}
     height = 0
     for row in map:
@@ -33,5 +33,5 @@ def get_trees(tright, tdown):
     return trees
 
 part1 = get_trees(3, 1)
-print(f'Part 1: {part1}')
-print(f'Part 2: {get_trees(1, 1) * part1 * get_trees(5, 1) * get_trees(7, 1) * get_trees(1, 2)}')
+print(f'Part 1: {part1}') # 270 
+print(f'Part 2: {get_trees(1, 1) * part1 * get_trees(5, 1) * get_trees(7, 1) * get_trees(1, 2)}') # 2122848000
